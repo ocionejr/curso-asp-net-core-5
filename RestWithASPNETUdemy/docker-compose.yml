@@ -1,0 +1,18 @@
+version: '2.4'
+services:
+  pgsql_asp:
+    image: postgres:alpine
+    ports:
+      - '5432:5432'
+    container_name: 'pgsql_asp'
+    restart: always
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: rest_with_asp_net_udemy
+    mem_limit:  512m
+
+volumes:
+  pg-data:
